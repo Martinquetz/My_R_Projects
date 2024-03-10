@@ -91,21 +91,28 @@ The resultant merged clean dataset was analyzed for:
     theme(axis.text.x = element_text(angle = 0)) +
     labs(title="Tracked Activities by Non-Bella devices by Number of Users")
   ```
+
+  ![popularly_tracked_activities](https://github.com/Martinquetz/My_R_Projects/assets/92187086/7279d17e-e53f-4b75-9a80-cc404a303db1)
+
 - A strong positive relationship exists between the number of steps taken, distance traveled, and the calories expended daily.
 - There is a negative relationship between the number of steps taken, distance traveled, and the hours of sleep daily. This was surprising as the reverse was expected to be the case.
   ```{r Chart of Distance vs. Hours of Sleep, echo=FALSE}
     ggplot(data = activityz) + geom_point(mapping = aes(y = sleep_hour, x=distance)) +
       geom_smooth(mapping = aes(y = sleep_hour, x=distance)) +
       labs(title="Distance vs Sleep")
-
   ```
+
+  ![dist_v_calories](https://github.com/Martinquetz/My_R_Projects/assets/92187086/fa649011-5320-4b85-b890-c2f531b9f6b6)
+
+![steps_v_calories](https://github.com/Martinquetz/My_R_Projects/assets/92187086/8053c95e-8787-4a6f-ac14-9d561f94847d)
+
+
 - participants, on average, slept in the longest on Wednesdays. The average most extended sleep hours were on weekdays and Wednesdays.
   ```{r Charts of Duration of Sleep in minutes by Weekday, echo=FALSE}
     ggplot(data = activityz_avg) +
       geom_col(mapping = aes(x= factor(weekday,levels = c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")), y= avg_sleep, fill=weekday)) +
       theme(axis.text.x = element_text(angle = 0)) +
       labs(title="Average Minutes of Sleep per Weekday")
-
   ```
 - People tend to expend a significant amount of calories while working at their desks in the office. It is assumed most respondents work in the office, as explained by the sedentary vs. calories chart, which showed the highest average sedentary minutes during the week are Tuesday through Friday.
   ```{r Chart of Sedentary time in minutes by Calories, and Average Sedentary by Weekday, echo=FALSE}
@@ -113,6 +120,10 @@ The resultant merged clean dataset was analyzed for:
       geom_smooth(mapping = aes(x=sedentary, y = calories)) +
       labs(title="Sedentary vs Calories")
   ```
+![sedentary_v_calories](https://github.com/Martinquetz/My_R_Projects/assets/92187086/1d161219-c332-45a1-ac3e-0e63ed3f98b9)
+
+![sed_by_day](https://github.com/Martinquetz/My_R_Projects/assets/92187086/ead447fb-d66b-4f09-a17d-34c0685c9fc5)
+
 
 ### Recommendations
 The following recommendations are made on the assumption that:
